@@ -3,8 +3,10 @@ package domain;
 import domain.coordinate.CoordinateException;
 import domain.coordinate.Position;
 import domain.coordinate.PositionParser;
+import domain.coordinate.Square;
 import domain.coordinate.dto.DoublePositionDto;
 import domain.coordinate.dto.PositionCreateDto;
+import domain.coordinate.dto.SquarePositionDto;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -66,5 +68,20 @@ public class PositionTest {
         Position target = Position.create(14, 15);
         double distance = position.distance(target);
         assertThat(distance).isEqualTo(6.403124, offset(0.00099));
+    }
+
+    /**
+     * 좌표값을 두 개 입력한 경우, 두 점을 있는 직선으로 가정한다. 좌표값과 좌표값 사이는 '-' 문자로 구분한다.
+     * 좌표값을 네 개 입력한 경우, 네 점을 연결하는 사각형으로 가정한다.
+     * 네 점이 뒤틀어진 사다리꼴이나 마름모는 제외하고 직사각형만 허용하도록 검사한다.
+     * 사각형인 경우 사각형의 넓이를 계산해서 출력한다.
+     */
+    @Test
+    @DisplayName("Position 파싱 - 사각형 면적")
+    void create_position_parse_square() {
+        String squarePosition = "(10,10)-(22,10)-(22,18)-(10,18)";
+        SquarePositionDto squarePositionDto = PositionParser.squareParse(squarePosition);
+        Square square = Square.create(squarePositionDto);
+        assertThat(square.area()).isEqualTo(96);
     }
 }

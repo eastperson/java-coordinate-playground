@@ -2,8 +2,18 @@ package domain.coordinate;
 
 import domain.coordinate.dto.DoublePositionDto;
 import domain.coordinate.dto.PositionCreateDto;
+import domain.coordinate.dto.SquarePositionDto;
 
 public class PositionParser {
+
+    public static SquarePositionDto squareParse(String squarePosition) {
+        String[] split = squarePosition.split("-");
+        String first = split[0];
+        String second = split[1];
+        String third = split[2];
+        String fourth = split[3];
+        return new SquarePositionDto(parse(clean(first)), parse(clean(second)), parse(clean(third)), parse(clean(fourth)));
+    }
 
     public static DoublePositionDto doubleParse(String doublePosition) {
         String[] split = doublePosition.split("-");
