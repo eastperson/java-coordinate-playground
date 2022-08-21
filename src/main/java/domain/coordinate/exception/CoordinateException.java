@@ -1,4 +1,4 @@
-package domain.coordinate;
+package domain.coordinate.exception;
 
 public class CoordinateException extends RuntimeException{
     public CoordinateException(String message) {

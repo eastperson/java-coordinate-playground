@@ -1,5 +1,7 @@
 package domain.coordinate;
 
+import domain.coordinate.exception.CoordinateException;
+
 public class Position {
 
     private final int x;

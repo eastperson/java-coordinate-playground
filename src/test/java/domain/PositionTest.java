@@ -1,6 +1,8 @@
 package domain;
 
-import domain.coordinate.CoordinateException;
+import domain.coordinate.Triangle;
+import domain.coordinate.dto.TrianglePositionDto;
+import domain.coordinate.exception.CoordinateException;
 import domain.coordinate.Position;
 import domain.coordinate.PositionParser;
 import domain.coordinate.Square;
@@ -83,5 +85,14 @@ public class PositionTest {
         SquarePositionDto squarePositionDto = PositionParser.squareParse(squarePosition);
         Square square = Square.create(squarePositionDto);
         assertThat(square.area()).isEqualTo(96);
+    }
+
+    @Test
+    @DisplayName("Position 파싱 - 삼각형 면적")
+    void create_position_parse_triangle() {
+        String trianglePosition = "(10,10)-(14,15)-(20,8)";
+        TrianglePositionDto trianglePositionDto = PositionParser.triangleParse(trianglePosition);
+        Triangle triangle = Triangle.create(trianglePositionDto);
+        assertThat(triangle.area()).isEqualTo(29, offset(0.000000000001));
     }
 }

@@ -3,6 +3,8 @@ package domain.coordinate;
 import domain.coordinate.dto.DoublePositionDto;
 import domain.coordinate.dto.PositionCreateDto;
 import domain.coordinate.dto.SquarePositionDto;
+import domain.coordinate.dto.TrianglePositionDto;
+import domain.coordinate.exception.CoordinateException;
 
 public class PositionParser {
 
@@ -55,5 +57,13 @@ public class PositionParser {
         if (number < 0 || 24 < number) {
             throw new CoordinateException("좌표는 0부터 24까지 숫자만 들어갈 수 있습니다.");
         }
+    }
+
+    public static TrianglePositionDto triangleParse(String trianglePosition) {
+        String[] split = trianglePosition.split("-");
+        String first = split[0];
+        String second = split[1];
+        String third = split[2];
+        return new TrianglePositionDto(parse(clean(first)), parse(clean(second)), parse(clean(third)));
     }
 }
