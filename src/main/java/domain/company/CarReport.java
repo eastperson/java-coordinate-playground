@@ -4,7 +4,7 @@ import domain.car.Car;
 
 public class CarReport {
 
-    private String report;
+    private final String report;
 
     public CarReport(Car car) {
         StringBuilder stringBuilder = new StringBuilder();

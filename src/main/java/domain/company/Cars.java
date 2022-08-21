@@ -7,8 +7,8 @@ import java.util.List;
 
 public class Cars {
 
-    private List<Car> cars = new ArrayList<>();
-    private List<CarReport> reports = new ArrayList<>();
+    private final List<Car> cars = new ArrayList<>();
+    private final List<CarReport> reports = new ArrayList<>();
 
     public void addCar(Car car) {
         this.cars.add(car);

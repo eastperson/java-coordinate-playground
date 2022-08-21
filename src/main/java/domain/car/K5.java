@@ -1,6 +1,6 @@
 package domain.car;
 
-public class K5 extends Car {
+public class K5 implements Car {
 
     private static final String NAME = "K5";
     private static final double DISTANCE_PER_LITER = 13;
