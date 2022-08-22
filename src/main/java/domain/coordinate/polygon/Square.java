@@ -1,14 +1,16 @@
-package domain.coordinate;
+package domain.coordinate.polygon;
 
+import domain.coordinate.Position;
 import domain.coordinate.dto.SquarePositionDto;
 
-public class Square {
+public class Square implements Polygon{
 
     private final Position first;
     private final Position second;
     private final Position third;
     private final Position fourth;
 
+    @Override
     public double area() {
         return width() * height();
     }

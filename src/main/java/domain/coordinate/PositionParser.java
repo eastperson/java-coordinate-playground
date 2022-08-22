@@ -17,6 +17,14 @@ public class PositionParser {
         return new SquarePositionDto(parse(clean(first)), parse(clean(second)), parse(clean(third)), parse(clean(fourth)));
     }
 
+    public static TrianglePositionDto triangleParse(String trianglePosition) {
+        String[] split = trianglePosition.split("-");
+        String first = split[0];
+        String second = split[1];
+        String third = split[2];
+        return new TrianglePositionDto(parse(clean(first)), parse(clean(second)), parse(clean(third)));
+    }
+
     public static DoublePositionDto doubleParse(String doublePosition) {
         String[] split = doublePosition.split("-");
         String first = split[0];
@@ -57,13 +65,5 @@ public class PositionParser {
         if (number < 0 || 24 < number) {
             throw new CoordinateException("좌표는 0부터 24까지 숫자만 들어갈 수 있습니다.");
         }
-    }
-
-    public static TrianglePositionDto triangleParse(String trianglePosition) {
-        String[] split = trianglePosition.split("-");
-        String first = split[0];
-        String second = split[1];
-        String third = split[2];
-        return new TrianglePositionDto(parse(clean(first)), parse(clean(second)), parse(clean(third)));
     }
 }

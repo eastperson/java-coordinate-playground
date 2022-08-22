@@ -1,11 +1,11 @@
 package domain;
 
-import domain.coordinate.Triangle;
+import domain.coordinate.polygon.Triangle;
 import domain.coordinate.dto.TrianglePositionDto;
 import domain.coordinate.exception.CoordinateException;
 import domain.coordinate.Position;
 import domain.coordinate.PositionParser;
-import domain.coordinate.Square;
+import domain.coordinate.polygon.Square;
 import domain.coordinate.dto.DoublePositionDto;
 import domain.coordinate.dto.PositionCreateDto;
 import domain.coordinate.dto.SquarePositionDto;

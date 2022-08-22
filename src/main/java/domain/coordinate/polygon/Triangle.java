@@ -1,8 +1,9 @@
-package domain.coordinate;
+package domain.coordinate.polygon;
 
+import domain.coordinate.Position;
 import domain.coordinate.dto.TrianglePositionDto;
 
-public class Triangle {
+public class Triangle implements Polygon {
 
     private final Position first;
     private final Position second;
@@ -28,6 +29,7 @@ public class Triangle {
      * 삼각형의 넓이 S는 S=Math.sqrt(s * (s - a) * (s - b) * (s - c)) 이다.
      * @return
      */
+    @Override
     public double area() {
         double a = first.distance(second);
         double b = second.distance(third);
